@@ -8,5 +8,4 @@ cadena = 'hola'
 cadenaBytes = cadena.encode('utf-8')
 ard.write(cadenaBytes)
 
-
 ard.close
