@@ -18,6 +18,8 @@ void loop() {
     giraMotorR('R', 100, 100);
 }
 
+//giraMotor('R', 100, 600); gira en sentido horario 600 pulsos 3 vueltas aprox a una velocidad 100
+
 void giraMotorL(char dir, int vel, int pulsos) {
     analogWrite(PWM, vel);
     if (dir == 'L') {
