@@ -3,7 +3,7 @@ from tkinter import ttk
 #from PIL import Image
 from PIL import Image, ImageTk
 #from tkinter import *
-
+#from tecladoPynput import *
 
 # Crear una instancia de la ventana
 ventana = tk.Tk()

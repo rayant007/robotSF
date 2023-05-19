@@ -5,13 +5,14 @@ from pynput import keyboard as kb
 
 #--------------------------------------
 #se realiza la conexion a arduino
-try:
-    arduino = serial.Serial('/dev/ttyACM0',9600,timeout=2)
-    print('conexion exitosa')
-    print('puerto valido')
-except:
-    print('no se establecio conexion')
-    print('puerto invalido')
+class ConexionArduino:
+    try:
+        arduino = serial.Serial('/dev/ttyACM0',9600,timeout=2)
+        print('conexion exitosa')
+        print('puerto valido')
+    except:
+        print('no se establecio conexion')
+        print('puerto invalido')
 #--------------------------------------
 
 """def pulsa(tecla):
@@ -38,21 +39,21 @@ except:
                                 return False"""
 
 
+class PulsaA:
+    def pulsa(tecla):
+        valores = {'w': 1, 's': 2, 'a': 3, 'd': 4, 'o': 5, 'l': 6}
+        if tecla.char in valores:
+            print(valores[tecla.char])
+            return valores[tecla.char]
+        else:
+            return False
 
-def pulsa(tecla):
-    valores = {'w': 1, 's': 2, 'a': 3, 'd': 4, 'o': 5, 'l': 6}
-    if tecla.char in valores:
-        print(valores[tecla.char])
-        return valores[tecla.char]
-    else:
-        return False
+    escuchador = kb.Listener(pulsa)
+    escuchador.start()
 
-escuchador = kb.Listener(pulsa)
-escuchador.start()
+    while escuchador.is_alive():
+        pass
 
-while escuchador.is_alive():
-    pass
-
-function_pulsa = pulsa
+    function_pulsa = pulsa
 #with kb.Listener(pulsa) as escuchador:
 #    escuchador.join()
